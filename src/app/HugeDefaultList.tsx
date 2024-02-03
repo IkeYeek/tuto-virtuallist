@@ -1,6 +1,6 @@
 import {Task} from "@/app/page";
 
-const hugeDefaultList = ({
+const HugeDefaultList = ({
                              listData,
                              switchTaskStatus,
                          }: {
@@ -13,22 +13,25 @@ const hugeDefaultList = ({
                 style={{
                     overflow: "scroll",
                     height: 800,
+                    width: "50%",
                 }}
-
             >
                 {listData.map((task) => (
                     <div key={task.id} style={{
                         display: "flex",
-                        justifyContent: "space-between"
                     }}>
-                        <button onClick={() => switchTaskStatus(task.id)}>
-                            {task.done ? "❌" : "✅"}
-                        </button>
+
                         <p style={{
                             textDecoration: task.done ? "line-through" : "",
+                            flex: "1 1 content"
                         }}>
                             #{task.id + 1} - {task.content}
                         </p>
+                        <button onClick={() => switchTaskStatus(task.id)} style={{
+                            flex: "0 1 50px"
+                        }}>
+                            {task.done ? "❌" : "✅"}
+                        </button>
                     </div>
                 ))}
             </div>
@@ -36,4 +39,4 @@ const hugeDefaultList = ({
     );
 };
 
-export default hugeDefaultList;
+export default HugeDefaultList;
