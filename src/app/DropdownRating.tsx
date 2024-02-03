@@ -11,7 +11,10 @@ const DropdownRating = ({rating, setRating, setClickPosition}: {
     const [active, setActive] = useState(false);
 
     const handleClickEvent = (e: React.MouseEvent) => {
-
+        setClickPosition({
+            top: e.clientY,
+            left: e.clientX
+        });
         setActive(!active);
     }
 
